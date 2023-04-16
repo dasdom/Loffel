@@ -9,7 +9,7 @@ import SwiftUI
 struct LoffelApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            MainView()
         }
     }
 }

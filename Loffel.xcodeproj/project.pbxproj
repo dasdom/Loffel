@@ -7,20 +7,32 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F25A709229EBDFC300346B49 /* ActionRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25A709129EBDFC300346B49 /* ActionRowView.swift */; };
+		F25A709429EBE04000346B49 /* BugetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25A709329EBE04000346B49 /* BugetView.swift */; };
+		F25A709629EBE1BB00346B49 /* ActionsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25A709529EBE1BB00346B49 /* ActionsListView.swift */; };
+		F25A709829EBE26700346B49 /* ActionInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25A709729EBE26700346B49 /* ActionInputView.swift */; };
 		F2F2A13929E89FF6003804F5 /* LoffelApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F2A13829E89FF6003804F5 /* LoffelApp.swift */; };
-		F2F2A13B29E89FF6003804F5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F2A13A29E89FF6003804F5 /* ContentView.swift */; };
+		F2F2A13B29E89FF6003804F5 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F2A13A29E89FF6003804F5 /* MainView.swift */; };
 		F2F2A13D29E89FF7003804F5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F2F2A13C29E89FF7003804F5 /* Assets.xcassets */; };
 		F2F2A14029E89FF7003804F5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F2F2A13F29E89FF7003804F5 /* Preview Assets.xcassets */; };
 		F2F2A14729E8A078003804F5 /* Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F2A14629E8A078003804F5 /* Action.swift */; };
+		F2F2A14929E8A4F0003804F5 /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F2A14829E8A4F0003804F5 /* Day.swift */; };
+		F2F2A17929E9ECDA003804F5 /* FileManager+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F2A17829E9ECDA003804F5 /* FileManager+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F25A709129EBDFC300346B49 /* ActionRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionRowView.swift; sourceTree = "<group>"; };
+		F25A709329EBE04000346B49 /* BugetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BugetView.swift; sourceTree = "<group>"; };
+		F25A709529EBE1BB00346B49 /* ActionsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionsListView.swift; sourceTree = "<group>"; };
+		F25A709729EBE26700346B49 /* ActionInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionInputView.swift; sourceTree = "<group>"; };
 		F2F2A13529E89FF6003804F5 /* Loffel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Loffel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2F2A13829E89FF6003804F5 /* LoffelApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoffelApp.swift; sourceTree = "<group>"; };
-		F2F2A13A29E89FF6003804F5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		F2F2A13A29E89FF6003804F5 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		F2F2A13C29E89FF7003804F5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F2F2A13F29E89FF7003804F5 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		F2F2A14629E8A078003804F5 /* Action.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Action.swift; sourceTree = "<group>"; };
+		F2F2A14829E8A4F0003804F5 /* Day.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day.swift; sourceTree = "<group>"; };
+		F2F2A17829E9ECDA003804F5 /* FileManager+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManager+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,8 +66,12 @@
 			isa = PBXGroup;
 			children = (
 				F2F2A13829E89FF6003804F5 /* LoffelApp.swift */,
-				F2F2A13A29E89FF6003804F5 /* ContentView.swift */,
-				F2F2A14629E8A078003804F5 /* Action.swift */,
+				F2F2A13A29E89FF6003804F5 /* MainView.swift */,
+				F25A709329EBE04000346B49 /* BugetView.swift */,
+				F25A709129EBDFC300346B49 /* ActionRowView.swift */,
+				F25A709529EBE1BB00346B49 /* ActionsListView.swift */,
+				F25A709729EBE26700346B49 /* ActionInputView.swift */,
+				F2F2A17729E9EC26003804F5 /* Model */,
 				F2F2A13C29E89FF7003804F5 /* Assets.xcassets */,
 				F2F2A13E29E89FF7003804F5 /* Preview Content */,
 			);
@@ -68,6 +84,16 @@
 				F2F2A13F29E89FF7003804F5 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		F2F2A17729E9EC26003804F5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F2F2A14629E8A078003804F5 /* Action.swift */,
+				F2F2A14829E8A4F0003804F5 /* Day.swift */,
+				F2F2A17829E9ECDA003804F5 /* FileManager+Extension.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -140,8 +166,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F2F2A13B29E89FF6003804F5 /* ContentView.swift in Sources */,
+				F25A709629EBE1BB00346B49 /* ActionsListView.swift in Sources */,
+				F25A709229EBDFC300346B49 /* ActionRowView.swift in Sources */,
+				F2F2A13B29E89FF6003804F5 /* MainView.swift in Sources */,
+				F25A709829EBE26700346B49 /* ActionInputView.swift in Sources */,
+				F2F2A17929E9ECDA003804F5 /* FileManager+Extension.swift in Sources */,
+				F25A709429EBE04000346B49 /* BugetView.swift in Sources */,
 				F2F2A14729E8A078003804F5 /* Action.swift in Sources */,
+				F2F2A14929E8A4F0003804F5 /* Day.swift in Sources */,
 				F2F2A13929E89FF6003804F5 /* LoffelApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
