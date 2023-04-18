@@ -8,11 +8,14 @@ struct ActionRowView: View {
 
   let action: Action
   @Binding var day: Day
+  var completed: Bool {
+    return day.completedActions.contains(action)
+  }
 
   var body: some View {
     HStack(spacing: 0) {
       ForEach(0..<action.spoons, id: \.self) { _ in
-        if day.completedActions.contains(action) {
+        if completed {
           Image(systemName: "circle.slash")
         } else {
           Image(systemName: "circle")
@@ -21,6 +24,9 @@ struct ActionRowView: View {
       Spacer()
       Text(action.name)
     }
+    .foregroundColor(completed ?
+                     Color(UIColor.secondaryLabel) :
+                      Color(UIColor.label))
     .listRowSeparator(.visible)
   }
 }

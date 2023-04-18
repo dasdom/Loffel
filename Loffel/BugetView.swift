@@ -10,7 +10,7 @@ struct BudgetView: View {
   @Binding var day: Day
   private let spoonColumns = [GridItem(), GridItem(), GridItem(),
                               GridItem(), GridItem(), GridItem()]
-  var doneSpoons: Int {
+  var spentSpoons: Int {
     return day.completedActions.reduce(0) { partialResult, action in
       return partialResult + action.spoons
     }
@@ -22,7 +22,7 @@ struct BudgetView: View {
         .font(.headline)
       LazyVGrid(columns: spoonColumns, spacing: 20) {
         ForEach(0..<day.amountOfSpoons, id: \.self, content: { index in
-          if index < doneSpoons {
+          if index < spentSpoons {
             Image(systemName: "circle.slash")
               .font(.title)
           } else {
@@ -39,7 +39,7 @@ struct BudgetView: View {
 
         Spacer()
 
-        Text("\(day.amountOfSpoons)")
+        Text("\(spentSpoons) / \(day.amountOfSpoons)")
 
         Spacer()
 

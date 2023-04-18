@@ -5,9 +5,8 @@
 import Foundation
 
 struct Action: Codable, Identifiable, Hashable {
+  var id: UUID = UUID()
   let name: String
-  let spoons: Int
-  var id: String {
-    return name
-  }
+  var spoons: Int = 1
+  var isHeader: Bool = false
 }
