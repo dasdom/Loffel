@@ -26,7 +26,7 @@ struct BudgetView: View {
             Image(systemName: "circle.slash")
               .font(.title)
           } else {
-            Image(systemName: "circle")
+            Image(systemName: "circle.fill")
               .font(.title)
           }
         })
@@ -39,7 +39,7 @@ struct BudgetView: View {
 
         Spacer()
 
-        Text("\(spentSpoons) / \(day.amountOfSpoons)")
+        Text("\(day.amountOfSpoons - spentSpoons) / \(day.amountOfSpoons)")
 
         Spacer()
 
