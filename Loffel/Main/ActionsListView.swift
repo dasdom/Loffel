@@ -46,8 +46,25 @@ struct ActionsListView: View {
                 }
               }
             }
-            .swipeActions {
+            .swipeActions(edge: .leading, allowsFullSwipe: true, content: {
               Button {
+                if day.plannedActions.contains(action) {
+                  day.plannedActions.removeAll(where: { $0.id == action.id })
+                } else {
+                  day.plannedActions.append(action)
+                }
+                updateSortedActions()
+              } label: {
+                if day.plannedActions.contains(action) {
+                  Text("Unplan")
+                } else {
+                  Text("Plan")
+                }
+              }
+              .tint(Color.accentColor)
+            })
+            .swipeActions {
+              Button(role: .destructive) {
                 allActions.removeAll(where: { $0.id == action.id })
               } label: {
                 Text("Delete")
