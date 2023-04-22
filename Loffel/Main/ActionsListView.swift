@@ -8,6 +8,7 @@ struct ActionsListView: View {
 
   @Binding var day: Day
   @Binding var allActions: [Action]
+  var onStartEditing: ((Action) -> Void)?
   var plannedActions: [Action] {
     allActions.filter({ day.plannedActions.contains($0) })
   }
@@ -63,11 +64,19 @@ struct ActionsListView: View {
               }
               .tint(Color.accentColor)
             })
-            .swipeActions {
-              Button(role: .destructive) {
-                allActions.removeAll(where: { $0.id == action.id })
-              } label: {
-                Text("Delete")
+            .swipeActions(edge: .trailing) {
+              if false == plannedActions.contains(action) {
+                Button(role: .destructive) {
+                  allActions.removeAll(where: { $0.id == action.id })
+                } label: {
+                  Text("Delete")
+                }
+
+                Button {
+                  onStartEditing?(action)
+                } label: {
+                  Text("Edit")
+                }
               }
             }
         }

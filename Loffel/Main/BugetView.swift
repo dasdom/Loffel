@@ -23,6 +23,8 @@ struct BudgetView: View {
           if index < day.spentSpoons {
             Image(systemName: "circle.slash")
 //              .font(.title)
+          } else if index < day.plannedSpoons-1 {
+            Image(systemName: "circle")
           } else {
             Image(systemName: "circle.fill")
 //              .font(.title)

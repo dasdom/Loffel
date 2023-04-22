@@ -16,6 +16,12 @@ struct Day: Codable, Equatable {
         return partialResult + action.spoons
       }
   }
+  var plannedSpoons: Int {
+    return plannedActions
+      .reduce(0) { partialResult, action in
+        return partialResult + action.spoons
+      }
+  }
   var availableSpoons: Int {
     return amountOfSpoons - spentSpoons
   }
