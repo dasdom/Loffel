@@ -11,9 +11,10 @@
 		F25A709429EBE04000346B49 /* BugetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25A709329EBE04000346B49 /* BugetView.swift */; };
 		F25A709629EBE1BB00346B49 /* ActionsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25A709529EBE1BB00346B49 /* ActionsListView.swift */; };
 		F25A709829EBE26700346B49 /* ActionInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25A709729EBE26700346B49 /* ActionInputView.swift */; };
-		F25F7CFE29F3CFC100EF395F /* ActionStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25F7CFD29F3CFC100EF395F /* ActionStore.swift */; };
 		F25F7D0029F3E88500EF395F /* AllActionsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25F7CFF29F3E88500EF395F /* AllActionsListView.swift */; };
 		F25F7D0229F3EB4600EF395F /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25F7D0129F3EB4600EF395F /* HeaderView.swift */; };
+		F25F7D0529F524CA00EF395F /* ActionStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25F7D0429F524CA00EF395F /* ActionStore.swift */; };
+		F25F7D0729F5494D00EF395F /* DailyActionEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25F7D0629F5494D00EF395F /* DailyActionEditView.swift */; };
 		F272EE1D29F07B8F002C322B /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F272EE1C29F07B8F002C322B /* SettingsView.swift */; };
 		F2F2A13929E89FF6003804F5 /* LoffelApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F2A13829E89FF6003804F5 /* LoffelApp.swift */; };
 		F2F2A13B29E89FF6003804F5 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F2A13A29E89FF6003804F5 /* MainView.swift */; };
@@ -29,9 +30,10 @@
 		F25A709329EBE04000346B49 /* BugetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BugetView.swift; sourceTree = "<group>"; };
 		F25A709529EBE1BB00346B49 /* ActionsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionsListView.swift; sourceTree = "<group>"; };
 		F25A709729EBE26700346B49 /* ActionInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionInputView.swift; sourceTree = "<group>"; };
-		F25F7CFD29F3CFC100EF395F /* ActionStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionStore.swift; sourceTree = "<group>"; };
 		F25F7CFF29F3E88500EF395F /* AllActionsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllActionsListView.swift; sourceTree = "<group>"; };
 		F25F7D0129F3EB4600EF395F /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
+		F25F7D0429F524CA00EF395F /* ActionStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionStore.swift; sourceTree = "<group>"; };
+		F25F7D0629F5494D00EF395F /* DailyActionEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyActionEditView.swift; sourceTree = "<group>"; };
 		F272EE1C29F07B8F002C322B /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		F2F2A13529E89FF6003804F5 /* Loffel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Loffel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2F2A13829E89FF6003804F5 /* LoffelApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoffelApp.swift; sourceTree = "<group>"; };
@@ -54,6 +56,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F25F7D0329F4FDAC00EF395F /* ActionStore */ = {
+			isa = PBXGroup;
+			children = (
+				F25F7CFF29F3E88500EF395F /* AllActionsListView.swift */,
+			);
+			path = ActionStore;
+			sourceTree = "<group>";
+		};
+		F25F7D0829F54B4E00EF395F /* Edit */ = {
+			isa = PBXGroup;
+			children = (
+				F25F7D0629F5494D00EF395F /* DailyActionEditView.swift */,
+			);
+			path = Edit;
+			sourceTree = "<group>";
+		};
 		F272EE1A29F07B47002C322B /* Input */ = {
 			isa = PBXGroup;
 			children = (
@@ -67,7 +85,6 @@
 			children = (
 				F2F2A13A29E89FF6003804F5 /* MainView.swift */,
 				F25F7D0129F3EB4600EF395F /* HeaderView.swift */,
-				F25F7CFD29F3CFC100EF395F /* ActionStore.swift */,
 				F25A709329EBE04000346B49 /* BugetView.swift */,
 				F25A709129EBDFC300346B49 /* ActionRowView.swift */,
 				F25A709529EBE1BB00346B49 /* ActionsListView.swift */,
@@ -103,9 +120,10 @@
 			isa = PBXGroup;
 			children = (
 				F2F2A13829E89FF6003804F5 /* LoffelApp.swift */,
-				F25F7CFF29F3E88500EF395F /* AllActionsListView.swift */,
 				F272EE1B29F07B5F002C322B /* Main */,
+				F25F7D0329F4FDAC00EF395F /* ActionStore */,
 				F272EE1A29F07B47002C322B /* Input */,
+				F25F7D0829F54B4E00EF395F /* Edit */,
 				F272EE1E29F07BE2002C322B /* Settings */,
 				F2F2A17729E9EC26003804F5 /* Model */,
 				F2F2A13C29E89FF7003804F5 /* Assets.xcassets */,
@@ -128,6 +146,7 @@
 				F2F2A14629E8A078003804F5 /* Action.swift */,
 				F2F2A14829E8A4F0003804F5 /* Day.swift */,
 				F2F2A17829E9ECDA003804F5 /* FileManager+Extension.swift */,
+				F25F7D0429F524CA00EF395F /* ActionStore.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -203,13 +222,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				F25A709629EBE1BB00346B49 /* ActionsListView.swift in Sources */,
+				F25F7D0529F524CA00EF395F /* ActionStore.swift in Sources */,
 				F25A709229EBDFC300346B49 /* ActionRowView.swift in Sources */,
-				F25F7CFE29F3CFC100EF395F /* ActionStore.swift in Sources */,
 				F2F2A13B29E89FF6003804F5 /* MainView.swift in Sources */,
 				F25A709829EBE26700346B49 /* ActionInputView.swift in Sources */,
 				F2F2A17929E9ECDA003804F5 /* FileManager+Extension.swift in Sources */,
 				F272EE1D29F07B8F002C322B /* SettingsView.swift in Sources */,
 				F25A709429EBE04000346B49 /* BugetView.swift in Sources */,
+				F25F7D0729F5494D00EF395F /* DailyActionEditView.swift in Sources */,
 				F25F7D0029F3E88500EF395F /* AllActionsListView.swift in Sources */,
 				F2F2A14729E8A078003804F5 /* Action.swift in Sources */,
 				F2F2A14929E8A4F0003804F5 /* Day.swift in Sources */,

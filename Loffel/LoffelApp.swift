@@ -6,9 +6,9 @@ import SwiftUI
 
 @main
 struct LoffelApp: App {
-    var body: some Scene {
-        WindowGroup {
-            MainView()
-        }
+  var body: some Scene {
+    WindowGroup {
+      MainView()
     }
+  }
 }

@@ -25,7 +25,7 @@ extension FileManager {
     }
   }
 
-  func safe(actions: [Action]) {
+  func save(actions: [Action]) {
     do {
       let data = try JSONEncoder().encode(actions)
       try data.write(to: actionsURL())
@@ -44,7 +44,7 @@ extension FileManager {
     }
   }
 
-  func safe(day: Day) {
+  func save(day: Day) {
     do {
       let data = try JSONEncoder().encode(day)
       try data.write(to: dayURL())

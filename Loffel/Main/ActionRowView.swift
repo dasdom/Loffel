@@ -24,9 +24,9 @@ struct ActionRowView: View {
       Spacer()
       Text(action.name)
     }
-    .foregroundColor(completed ?
-                     Color(UIColor.secondaryLabel) :
-                      Color(UIColor.label))
+//    .foregroundColor(completed ?
+//                     Color(UIColor.secondaryLabel) :
+//                      Color(UIColor.label))
     .listRowSeparator(.visible)
   }
 }

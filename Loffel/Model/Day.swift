@@ -7,9 +7,9 @@ import Foundation
 struct Day: Codable, Equatable {
   var date: Date
   var amountOfSpoons: Int
-  var carryOverSpoons: Int = 0
-  var completedActions: [Action] = []
-  var plannedActions: [Action] = []
+  var carryOverSpoons: Int
+  var completedActions: [Action]
+  var plannedActions: [Action]
   var spentSpoons: Int {
     return completedActions
       .reduce(0) { partialResult, action in
@@ -24,6 +24,18 @@ struct Day: Codable, Equatable {
   }
   var availableSpoons: Int {
     return amountOfSpoons - spentSpoons
+  }
+
+  init(date: Date = .now,
+       amountOfSpoons: Int = 12,
+       carryOverSpoons: Int = 0,
+       completedActions: [Action] = [],
+       plannedActions: [Action] = []) {
+    self.date = date
+    self.amountOfSpoons = amountOfSpoons
+    self.carryOverSpoons = carryOverSpoons
+    self.completedActions = completedActions
+    self.plannedActions = plannedActions
   }
 
   mutating func reset(dailySpoons: Int) {

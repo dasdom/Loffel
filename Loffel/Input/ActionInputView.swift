@@ -8,41 +8,41 @@ struct ActionInputView: View {
 
   @State var name: String = ""
   @State var spoons: Int = 1
-  @Binding var allActions: [Action]
+  @State var addToDay: Bool = false
   var editedAction: Action? = nil
+  var nameFromSearch: String? = nil
+  @Binding var day: Day
   @Environment(\.dismiss) private var dismiss
   @FocusState private var focused: Bool
+  @EnvironmentObject private var actionStore: ActionStore
 
   var body: some View {
     Form {
       TextField("Name", text: $name)
         .focused($focused)
       
-      Stepper("Spoons: \(spoons)", value: $spoons)
+      Stepper("Spoons: \(spoons)", value: $spoons, in:0...24)
+
+      Toggle("Add to today", isOn: $addToDay)
 
       Section {
 
-        HStack {
-          Button(action: dismiss.callAsFunction) {
-            Text("Cancel")
-          }
-          .foregroundColor(Color(UIColor.systemRed))
-          .bold()
+        Button(action: dismiss.callAsFunction) {
+          Text("Cancel")
+        }
+        .foregroundColor(Color(UIColor.systemRed))
 
-          Spacer()
-
-          Button(action: {
-            let id = editedAction?.id ?? UUID()
-            let action = Action(id: id, name: name, spoons: spoons)
-            if let index = allActions.firstIndex(where: { $0.id == id }) {
-              allActions[index] = action
-            } else {
-              allActions.append(action)
-            }
-            dismiss()
-          }) {
-            Text("Save")
+        Button(action: {
+          let id = editedAction?.id ?? UUID()
+          let action = Action(id: id, name: name, spoons: spoons)
+          actionStore.addOrReplace(action: action)
+          if addToDay {
+            day.plannedActions.append(action)
           }
+          dismiss()
+        }) {
+          Text("Save")
+            .bold()
         }
       }
     }
@@ -51,6 +51,8 @@ struct ActionInputView: View {
       if let editedAction = editedAction {
         name = editedAction.name
         spoons = editedAction.spoons
+      } else if let nameFromSearch = nameFromSearch {
+        name = nameFromSearch
       }
     }
   }
@@ -58,6 +60,6 @@ struct ActionInputView: View {
 
 struct ActionInputView_Previews: PreviewProvider {
   static var previews: some View {
-    ActionInputView(allActions: .constant([]))
+    ActionInputView(day: .constant(Day()))
   }
 }
