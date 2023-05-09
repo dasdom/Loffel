@@ -11,8 +11,7 @@
 		F25A709429EBE04000346B49 /* BugetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25A709329EBE04000346B49 /* BugetView.swift */; };
 		F25A709629EBE1BB00346B49 /* ActionsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25A709529EBE1BB00346B49 /* ActionsListView.swift */; };
 		F25A709829EBE26700346B49 /* ActionInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25A709729EBE26700346B49 /* ActionInputView.swift */; };
-		F25F7D0029F3E88500EF395F /* AllActionsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25F7CFF29F3E88500EF395F /* AllActionsListView.swift */; };
-		F25F7D0229F3EB4600EF395F /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25F7D0129F3EB4600EF395F /* HeaderView.swift */; };
+		F25F7D0029F3E88500EF395F /* ActionStoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25F7CFF29F3E88500EF395F /* ActionStoreView.swift */; };
 		F25F7D0529F524CA00EF395F /* ActionStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25F7D0429F524CA00EF395F /* ActionStore.swift */; };
 		F25F7D0729F5494D00EF395F /* DailyActionEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25F7D0629F5494D00EF395F /* DailyActionEditView.swift */; };
 		F272EE1D29F07B8F002C322B /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F272EE1C29F07B8F002C322B /* SettingsView.swift */; };
@@ -30,8 +29,7 @@
 		F25A709329EBE04000346B49 /* BugetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BugetView.swift; sourceTree = "<group>"; };
 		F25A709529EBE1BB00346B49 /* ActionsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionsListView.swift; sourceTree = "<group>"; };
 		F25A709729EBE26700346B49 /* ActionInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionInputView.swift; sourceTree = "<group>"; };
-		F25F7CFF29F3E88500EF395F /* AllActionsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllActionsListView.swift; sourceTree = "<group>"; };
-		F25F7D0129F3EB4600EF395F /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
+		F25F7CFF29F3E88500EF395F /* ActionStoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionStoreView.swift; sourceTree = "<group>"; };
 		F25F7D0429F524CA00EF395F /* ActionStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionStore.swift; sourceTree = "<group>"; };
 		F25F7D0629F5494D00EF395F /* DailyActionEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyActionEditView.swift; sourceTree = "<group>"; };
 		F272EE1C29F07B8F002C322B /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
@@ -59,7 +57,7 @@
 		F25F7D0329F4FDAC00EF395F /* ActionStore */ = {
 			isa = PBXGroup;
 			children = (
-				F25F7CFF29F3E88500EF395F /* AllActionsListView.swift */,
+				F25F7CFF29F3E88500EF395F /* ActionStoreView.swift */,
 			);
 			path = ActionStore;
 			sourceTree = "<group>";
@@ -84,7 +82,6 @@
 			isa = PBXGroup;
 			children = (
 				F2F2A13A29E89FF6003804F5 /* MainView.swift */,
-				F25F7D0129F3EB4600EF395F /* HeaderView.swift */,
 				F25A709329EBE04000346B49 /* BugetView.swift */,
 				F25A709129EBDFC300346B49 /* ActionRowView.swift */,
 				F25A709529EBE1BB00346B49 /* ActionsListView.swift */,
@@ -230,11 +227,10 @@
 				F272EE1D29F07B8F002C322B /* SettingsView.swift in Sources */,
 				F25A709429EBE04000346B49 /* BugetView.swift in Sources */,
 				F25F7D0729F5494D00EF395F /* DailyActionEditView.swift in Sources */,
-				F25F7D0029F3E88500EF395F /* AllActionsListView.swift in Sources */,
+				F25F7D0029F3E88500EF395F /* ActionStoreView.swift in Sources */,
 				F2F2A14729E8A078003804F5 /* Action.swift in Sources */,
 				F2F2A14929E8A4F0003804F5 /* Day.swift in Sources */,
 				F2F2A13929E89FF6003804F5 /* LoffelApp.swift in Sources */,
-				F25F7D0229F3EB4600EF395F /* HeaderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -361,7 +357,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_ASSET_PATHS = "\"Loffel/Preview Content\"";
 				DEVELOPMENT_TEAM = Q6PD97MRX4;
 				ENABLE_PREVIEWS = YES;
@@ -371,7 +367,6 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -380,9 +375,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = de.dasdom.DailySpoons;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -392,7 +390,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_ASSET_PATHS = "\"Loffel/Preview Content\"";
 				DEVELOPMENT_TEAM = Q6PD97MRX4;
 				ENABLE_PREVIEWS = YES;
@@ -402,7 +400,6 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -411,9 +408,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = de.dasdom.DailySpoons;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

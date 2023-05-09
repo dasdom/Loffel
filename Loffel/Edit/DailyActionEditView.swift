@@ -12,6 +12,7 @@ struct DailyActionEditView: View {
   @Binding var day: Day
   @FocusState private var focused: Bool
   @Environment(\.dismiss) private var dismiss
+  @EnvironmentObject private var actionStore: ActionStore
 
   var body: some View {
     NavigationView {
@@ -26,7 +27,10 @@ struct DailyActionEditView: View {
 
         Section {
           Button(action: {
-
+            let id = editedAction.id
+            let action = Action(id: id, name: name, spoons: spoons)
+            actionStore.addOrReplace(action: action)
+            dismiss()
           }) {
             Text("Save")
           }

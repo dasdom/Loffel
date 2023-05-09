@@ -16,48 +16,55 @@ struct MainView: View {
   @StateObject private var actionStore: ActionStore = ActionStore()
 
   var body: some View {
-      VStack(spacing: 20) {
-        HeaderView(settingsIsShown: $settingsIsShown,
-                   day: $day,
-                   actionStoreIsShown: $actionStoreIsShown,
-                   dailySpoons: dailySpoons)
+    NavigationView {
+      ActionsListView(day: $day, actionStoreIsShown: $actionStoreIsShown, onStartEditing: { action in
+        editedAction = action
+        inputIsShown = true
+      })
+      .toolbar {
+        ToolbarItem(placement: .navigationBarLeading) {
+          Button {
+            settingsIsShown.toggle()
+          } label: {
+            Image(systemName: "gear")
+          }
+          .accessibilityLabel(Text("Settings"))
+        }
 
-        BudgetView(day: $day)
-          .padding(.horizontal)
-
-        ActionsListView(day: $day, onStartEditing: { action in
-          editedAction = action
-          inputIsShown = true
-        })
-      }
-      .onAppear {
-        day = FileManager.default.day()
-        if false == Calendar.current.isDate(day.date, inSameDayAs: .now) {
-          reset()
+        ToolbarItem(placement: .navigationBarTrailing) {
+          Button(action: reset) {
+            Image(systemName: "arrow.counterclockwise")
+          }
+          .accessibilityLabel(Text("Reset spoons"))
         }
       }
-      .sheet(isPresented: $inputIsShown) {
-        if let action = editedAction {
-          DailyActionEditView(editedAction: action, day: $day)
-        }
+    }
+    .onAppear {
+      day = FileManager.default.day()
+      if false == Calendar.current.isDate(day.date, inSameDayAs: .now) {
+        reset()
       }
-      .sheet(isPresented: $settingsIsShown) {
-        SettingsView()
-      }
-      .sheet(isPresented: $actionStoreIsShown) {
-        AllActionsListView(day: $day)
-          .presentationDetents(
-            [.medium, .large],
-            selection: $settingsDetent
-          )
-      }
-      .onChange(of: day) { newValue in
-        FileManager.default.save(day: newValue)
-      }
-      .onChange(of: dailySpoons) { newValue in
-        day.amountOfSpoons = dailySpoons
-      }
-      .environmentObject(actionStore)
+    }
+    .sheet(item: $editedAction, content: { action in
+      DailyActionEditView(editedAction: action, day: $day)
+    })
+    .sheet(isPresented: $settingsIsShown) {
+      SettingsView()
+    }
+    .sheet(isPresented: $actionStoreIsShown) {
+      ActionStoreView(day: $day)
+        .presentationDetents(
+          [.medium, .large],
+          selection: $settingsDetent
+        )
+    }
+    .onChange(of: day) { newValue in
+      FileManager.default.save(day: newValue)
+    }
+    .onChange(of: dailySpoons) { newValue in
+      day.amountOfSpoons = dailySpoons
+    }
+    .environmentObject(actionStore)
   }
 
   func reset() {

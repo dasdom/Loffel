@@ -8,8 +8,6 @@ struct ActionInputView: View {
 
   @State var name: String = ""
   @State var spoons: Int = 1
-  @State var addToDay: Bool = false
-  var editedAction: Action? = nil
   var nameFromSearch: String? = nil
   @Binding var day: Day
   @Environment(\.dismiss) private var dismiss
@@ -23,8 +21,6 @@ struct ActionInputView: View {
       
       Stepper("Spoons: \(spoons)", value: $spoons, in:0...24)
 
-      Toggle("Add to today", isOn: $addToDay)
-
       Section {
 
         Button(action: dismiss.callAsFunction) {
@@ -33,12 +29,10 @@ struct ActionInputView: View {
         .foregroundColor(Color(UIColor.systemRed))
 
         Button(action: {
-          let id = editedAction?.id ?? UUID()
+          let id = UUID()
           let action = Action(id: id, name: name, spoons: spoons)
           actionStore.addOrReplace(action: action)
-          if addToDay {
-            day.plannedActions.append(action)
-          }
+          day.plannedActions.append(action)
           dismiss()
         }) {
           Text("Save")
@@ -48,10 +42,7 @@ struct ActionInputView: View {
     }
     .onAppear {
       focused = true
-      if let editedAction = editedAction {
-        name = editedAction.name
-        spoons = editedAction.spoons
-      } else if let nameFromSearch = nameFromSearch {
+      if let nameFromSearch = nameFromSearch {
         name = nameFromSearch
       }
     }

@@ -29,9 +29,14 @@ class ActionStore: ObservableObject {
   func addOrReplace(action: Action) {
     if let index = allActions.firstIndex(where: { $0.id == action.id }) {
       allActions[index] = action
-      FileManager.default.save(actions: allActions)
     } else {
       allActions.append(action)
     }
+    FileManager.default.save(actions: allActions)
+  }
+
+  func remove(action: Action) {
+    allActions.removeAll(where: { $0.id == action.id })
+    FileManager.default.save(actions: allActions)
   }
 }

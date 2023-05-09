@@ -10,7 +10,7 @@ struct Day: Codable, Equatable {
   var carryOverSpoons: Int
   var completedActions: [Action]
   var plannedActions: [Action]
-  var spentSpoons: Int {
+  var completedSpoons: Int {
     return completedActions
       .reduce(0) { partialResult, action in
         return partialResult + action.spoons
@@ -23,7 +23,7 @@ struct Day: Codable, Equatable {
       }
   }
   var availableSpoons: Int {
-    return amountOfSpoons - spentSpoons
+    return amountOfSpoons - completedSpoons
   }
 
   init(date: Date = .now,
@@ -39,7 +39,7 @@ struct Day: Codable, Equatable {
   }
 
   mutating func reset(dailySpoons: Int) {
-    let carryOverSpoons = spentSpoons - (amountOfSpoons - carryOverSpoons)
+    let carryOverSpoons = completedSpoons - (amountOfSpoons - carryOverSpoons)
     if carryOverSpoons > 0 {
       self.carryOverSpoons = carryOverSpoons
     } else {
@@ -49,5 +49,15 @@ struct Day: Codable, Equatable {
     date = .now
     completedActions = []
     amountOfSpoons = dailySpoons
+  }
+
+  mutating func plan(action: Action) {
+    if (false == plannedActions.contains(where: { $0.id == action.id })) {
+      plannedActions.append(action)
+    }
+  }
+
+  mutating func unplan(action: Action) {
+    plannedActions.removeAll(where: { $0.id == action.id })
   }
 }

@@ -20,43 +20,44 @@ struct BudgetView: View {
       LazyVGrid(columns: spoonColumns, spacing: 10) {
         ForEach(0..<(day.amountOfSpoons - day.carryOverSpoons),
                 id: \.self, content: { index in
-          if index < day.spentSpoons {
+          if index < day.completedSpoons {
             Image(systemName: "circle.slash")
-//              .font(.title)
           } else if index < day.plannedSpoons {
             Image(systemName: "circle")
           } else {
             Image(systemName: "circle.fill")
-//              .font(.title)
           }
         })
       }
       .accessibilityHidden(true)
 
-      HStack {
-//        Button(action: {
-//          if day.amountOfSpoons >= 1 {
-//            day.amountOfSpoons -= 1
-//          }
-//        }) {
-//          Image(systemName: "minus")
-//        }
-//
-//        Spacer()
-
-        if day.carryOverSpoons > 0 {
-          Text("(\(day.availableSpoons) - \(day.carryOverSpoons)) / \(day.amountOfSpoons)")
-        } else {
-          Text("\(day.availableSpoons) / \(day.amountOfSpoons)")
+      if day.carryOverSpoons > 0 {
+        VStack {
+          HStack {
+            Text("Planned")
+            Text("(\(day.plannedSpoons)-\(day.carryOverSpoons))/\(day.amountOfSpoons)")
+          }
+          HStack {
+            Text("Completed")
+            Text("(\(day.completedSpoons)-\(day.carryOverSpoons))/\(day.amountOfSpoons)")
+          }
         }
-
-//        Spacer()
-//
-//        Button(action: { day.amountOfSpoons += 1 }) {
-//          Image(systemName: "plus")
-//        }
+        .font(.subheadline)
+      } else {
+        VStack {
+          HStack {
+            Text("Planned")
+            Text("\(day.plannedSpoons)/\(day.amountOfSpoons)")
+              .monospaced()
+          }
+          HStack {
+            Text("Completed")
+            Text("\(day.completedSpoons)/\(day.amountOfSpoons)")
+              .monospaced()
+          }
+        }
+        .font(.subheadline)
       }
-      .padding([.horizontal])
     }
     .padding()
     .background {
@@ -67,7 +68,7 @@ struct BudgetView: View {
 }
 
 struct BugetView_Previews: PreviewProvider {
-    static var previews: some View {
-      BudgetView(day: .constant(Day(date: .now, amountOfSpoons: 12)))
-    }
+  static var previews: some View {
+    BudgetView(day: .constant(Day(date: .now, amountOfSpoons: 12)))
+  }
 }

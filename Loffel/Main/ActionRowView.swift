@@ -7,10 +7,8 @@ import SwiftUI
 struct ActionRowView: View {
 
   let action: Action
-  @Binding var day: Day
-  var completed: Bool {
-    return day.completedActions.contains(action)
-  }
+  let completed: Bool
+  let shownAsInactive: Bool
 
   var body: some View {
     HStack(spacing: 0) {
@@ -24,15 +22,15 @@ struct ActionRowView: View {
       Spacer()
       Text(action.name)
     }
-//    .foregroundColor(completed ?
-//                     Color(UIColor.secondaryLabel) :
-//                      Color(UIColor.label))
     .listRowSeparator(.visible)
+    .foregroundColor(shownAsInactive ?
+                     Color(UIColor.secondaryLabel) :
+                      Color(UIColor.label))
   }
 }
 
 struct ActionView_Previews: PreviewProvider {
     static var previews: some View {
-      ActionRowView(action: Action(name: "Aufräumen", spoons: 2), day: .constant(Day(date: .now, amountOfSpoons: 12)))
+      ActionRowView(action: Action(name: "Get up"), completed: true, shownAsInactive: false)
     }
 }
