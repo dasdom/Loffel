@@ -12,18 +12,53 @@ struct Day: Codable, Equatable {
   var plannedActions: [Action]
   var completedSpoons: Int {
     return completedActions
+      .filter({ $0.spoons > 0})
       .reduce(0) { partialResult, action in
         return partialResult + action.spoons
+      }
+  }
+  var completedSpoonSources: Int {
+    return completedActions
+      .filter({ $0.spoons < 0})
+      .reduce(0) { partialResult, action in
+        return partialResult - action.spoons
       }
   }
   var plannedSpoons: Int {
     return plannedActions
+      .filter({ $0.spoons > 0})
       .reduce(0) { partialResult, action in
         return partialResult + action.spoons
       }
   }
+  var plannedSpoonSources: Int {
+    return plannedActions
+      .filter({ $0.spoons < 0})
+      .reduce(0) { partialResult, action in
+        return partialResult - action.spoons
+      }
+  }
   var availableSpoons: Int {
-    return amountOfSpoons - completedSpoons
+    return realAmountOfSpoons - completedSpoons
+  }
+  var plannedString: String {
+    var string = "\(plannedSpoons)"
+    if carryOverSpoons > 0 {
+      string.append("-\(carryOverSpoons)")
+    }
+    string.append("/\(realAmountOfSpoons)")
+    return string
+  }
+  var completedString: String {
+    var string = "\(completedSpoons)"
+    if carryOverSpoons > 0 {
+      string.append("-\(carryOverSpoons)")
+    }
+    string.append("/\(realAmountOfSpoons)")
+    return string
+  }
+  var realAmountOfSpoons: Int {
+    return amountOfSpoons + plannedSpoonSources
   }
 
   init(date: Date = .now,

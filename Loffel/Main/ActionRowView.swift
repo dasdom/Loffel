@@ -3,6 +3,7 @@
 //
 
 import SwiftUI
+@_exported import HotSwiftUI
 
 struct ActionRowView: View {
 
@@ -12,21 +13,32 @@ struct ActionRowView: View {
 
   var body: some View {
     HStack(spacing: 0) {
-      ForEach(0..<action.spoons, id: \.self) { _ in
-        if completed {
-          Image(systemName: "circle.slash")
-        } else {
-          Image(systemName: "circle")
-        }
+      let absoluteSpoons = abs(action.spoons)
+      ForEach(0..<absoluteSpoons, id: \.self) { _ in
+        Image(systemName: imageName(for: action, completed: completed))
       }
       Spacer()
-      Text(action.name)
+      Text(action.name).font(.title)
     }
     .listRowSeparator(.visible)
     .foregroundColor(shownAsInactive ?
                      Color(UIColor.secondaryLabel) :
                       Color(UIColor.label))
+    .eraseToAnyView()
   }
+
+  func imageName(for action: Action, completed: Bool) -> String {
+    var imageName = "circle"
+    if completed {
+      imageName.append(".slash")
+    }
+    if action.actionType == .source {
+      imageName.append(".fill")
+    }
+    return imageName
+  }
+
+  @ObserveInjection var redraw
 }
 
 struct ActionView_Previews: PreviewProvider {

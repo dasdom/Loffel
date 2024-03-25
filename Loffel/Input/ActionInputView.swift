@@ -4,10 +4,16 @@
 
 import SwiftUI
 
+enum ActionType: Int {
+  case sink
+  case source
+}
+
 struct ActionInputView: View {
 
   @State var name: String = ""
   @State var spoons: Int = 1
+  @State var type: ActionType = .sink
   var nameFromSearch: String? = nil
   @Binding var day: Day
   @Environment(\.dismiss) private var dismiss
@@ -21,6 +27,11 @@ struct ActionInputView: View {
       
       Stepper("Spoons: \(spoons)", value: $spoons, in:0...24)
 
+      Picker("Type", selection: $type) {
+        Text("Spoon Sink").tag(ActionType.sink)
+        Text("Spoon Source").tag(ActionType.source)
+      }
+
       Section {
 
         Button(action: dismiss.callAsFunction) {
@@ -30,7 +41,11 @@ struct ActionInputView: View {
 
         Button(action: {
           let id = UUID()
-          let action = Action(id: id, name: name, spoons: spoons)
+          let action = Action(
+            id: id,
+            name: name,
+            spoons: type == .sink ? spoons : -spoons
+          )
           actionStore.addOrReplace(action: action)
           day.plannedActions.append(action)
           dismiss()

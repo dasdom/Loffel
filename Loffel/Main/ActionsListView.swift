@@ -26,6 +26,7 @@ struct ActionsListView: View {
         } label: {
           Image(systemName: "tray.full")
             .foregroundColor(.accentColor)
+            .font(.title3)
         }
       }
 

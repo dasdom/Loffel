@@ -10,6 +10,13 @@ struct Action: Codable, Identifiable, Hashable {
   let name: String
   var spoons: Int = 1
   //  var isHeader: Bool = false
+  var actionType: ActionType {
+    if spoons > 0 {
+      return .sink
+    } else {
+      return .source
+    }
+  }
 
   init(id: UUID = UUID(), name: String, spoons: Int = 1, isHeader: Bool = false) {
     self.id = id

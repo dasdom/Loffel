@@ -18,12 +18,14 @@ struct BudgetView: View {
       Text("Spoon Budget")
         .font(.headline)
       LazyVGrid(columns: spoonColumns, spacing: 10) {
-        ForEach(0..<(day.amountOfSpoons - day.carryOverSpoons),
+        ForEach(0..<(day.realAmountOfSpoons - day.carryOverSpoons),
                 id: \.self, content: { index in
           if index < day.completedSpoons {
             Image(systemName: "circle.slash")
           } else if index < day.plannedSpoons {
             Image(systemName: "circle")
+          } else if index < day.plannedSpoons + day.completedSpoonSources {
+            Image(systemName: "circle.slash.fill")
           } else {
             Image(systemName: "circle.fill")
           }
@@ -31,33 +33,19 @@ struct BudgetView: View {
       }
       .accessibilityHidden(true)
 
-      if day.carryOverSpoons > 0 {
-        VStack {
-          HStack {
-            Text("Planned")
-            Text("(\(day.plannedSpoons)-\(day.carryOverSpoons))/\(day.amountOfSpoons)")
-          }
-          HStack {
-            Text("Completed")
-            Text("(\(day.completedSpoons)-\(day.carryOverSpoons))/\(day.amountOfSpoons)")
-          }
+      VStack {
+        HStack {
+          Text("Planned")
+          Text(day.plannedString)
+            .monospaced()
         }
-        .font(.subheadline)
-      } else {
-        VStack {
-          HStack {
-            Text("Planned")
-            Text("\(day.plannedSpoons)/\(day.amountOfSpoons)")
-              .monospaced()
-          }
-          HStack {
-            Text("Completed")
-            Text("\(day.completedSpoons)/\(day.amountOfSpoons)")
-              .monospaced()
-          }
+        HStack {
+          Text("Completed")
+          Text(day.completedString)
+            .monospaced()
         }
-        .font(.subheadline)
       }
+      .font(.subheadline)
     }
     .padding()
     .background {
